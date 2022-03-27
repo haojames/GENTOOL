@@ -14,16 +14,15 @@ class MainWindows(QtWidgets.QWidget):
 		grid = QGridLayout()
 		grid.addWidget(self.createGroupbox1(), 0, 0)
 		grid.addWidget(self.createGroupbox2(), 1, 0)
+		grid.addWidget(self.createGroupbox3(), 2, 0)
+		grid.addWidget(self.Button(),3,2)
 		self.setLayout(grid)
-		button = QPushButton('RUN', self)
-		button.move(15,400)
-		button.clicked.connect(self.on_click)
 		self.show()
 	"""
 	Create groupbox 1 to choice option need complie
 	"""
 	def createGroupbox1(self):
-		groupbox = QtWidgets.QGroupBox("OPTION")
+		groupbox1 = QtWidgets.QGroupBox("OPTION")
 		radio1 = QRadioButton("Excel -> XML")
 		radio2 = QRadioButton("XML -> Excel")
 
@@ -35,11 +34,9 @@ class MainWindows(QtWidgets.QWidget):
 		vbox = QVBoxLayout()
 		vbox.addWidget(radio1)
 		vbox.addWidget(radio2)
-		#vbox.addStretch(1)
-		groupbox.setLayout(vbox)
-		return groupbox
-
-
+		vbox.addStretch(1)
+		groupbox1.setLayout(vbox)
+		return groupbox1
 
 	@pyqtSlot()
 	def on_click(self):
@@ -73,6 +70,26 @@ class MainWindows(QtWidgets.QWidget):
 		vbox2.addStretch(2)
 		groupbox2.setLayout(vbox2)
 		return groupbox2
+
+	def createGroupbox3(self):
+		groupbox3 = QtWidgets.QGroupBox("MODE")
+		radio3 = QRadioButton("GEN 1 LINE")
+		radio4 = QRadioButton("GEN MORE 1 LINE")
+
+		radio3.setChecked(False)
+		radio4.setChecked(False)
+
+		vbox3 = QVBoxLayout()
+		vbox3.addWidget(radio3)
+		vbox3.addWidget(radio4)
+		vbox3.addStretch(3)
+		groupbox3.setLayout(vbox3)
+		return groupbox3
+
+	def Button(self):
+		button = QPushButton("CLICK", self)
+		button.setGeometry(QtCore.QRect(20, 470, 151, 41))
+		return button
 
 
 # Run Application
