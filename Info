@@ -1,0 +1,1005 @@
+BYD_SA20_SA3EJK_LabT_LDW__136
+
+2.6.23 Braking suppression, left	
+
+Check that LDW left warning should be suppressed if driver brakes actively.	
+
+"1) Set IPB_0x121::IPB_Vehicle_Speed_S to 85 KPH
+2) Set Left_BCM_0x151::Speed_Signal_151_S to 85 KPH
+3) Set Media_0x385::LKS_Enable_S to 2 (LaneDeparture)
+4) Set Media_0x385::LKS_Enable_S to 0 (Invalid)
+5) Set Media_0x385::LDW_Warning_Mode_S to 1 (VibrationOnly)
+6) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+7) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+8) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+9) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+10) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)
+11) Start time measurement
+12) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+13) End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time
+14) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+15) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+16) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+17) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+18) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 5 mm
+19) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+20) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+21) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+22) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+23) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+24) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)
+25) Start time measurement
+26) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+27) End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time
+28) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+29) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+30) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+31) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+32) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 7 mm
+33) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+34) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+35) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+36) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+37) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+38) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 0 (VibrationOnly)
+39) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+40) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+41) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+42) wait 30000ms
+43) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 0 (VibrationOnly)
+44) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+45) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+46) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+47) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 10 mm
+48) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+49) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+50) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+51) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+52) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+53) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 0 (VibrationOnly)
+54) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+55) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+56) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+57) wait 30000ms
+58) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 0 (VibrationOnly)
+59) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+60) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+61) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+62) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 15 mm
+63) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+64) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+65) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+66) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+67) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+68) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 0 (VibrationOnly)
+69) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+70) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+71) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+72) wait 30000ms
+73) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 0 (VibrationOnly)
+74) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+75) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+76) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+77) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 20 mm
+78) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+79) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+80) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+81) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+82) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+83) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 0 (VibrationOnly)
+84) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+85) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+86) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+87) wait 30000ms
+88) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 0 (VibrationOnly)
+89) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+90) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+91) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+92) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 25 mm
+93) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+94) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+95) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+96) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+97) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+98) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 0 (VibrationOnly)
+99) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+100) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+101) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+102) wait 30000ms
+103) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 0 (VibrationOnly)
+104) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+105) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+106) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+107) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 3 mm
+108) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+109) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+110) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+111) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+112) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+113) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 0 (VibrationOnly)
+114) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+115) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+116) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+117) wait 30000ms
+118) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 0 (VibrationOnly)
+119) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+120) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+121) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+122) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 2 mm
+123) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+124) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+125) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+126) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+127) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+128) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)
+129) Start time measurement
+130) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+131) End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time
+132) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+133) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+134) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+135) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+136) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 0 mm
+137) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+138) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+139) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+140) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+141) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+142) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)
+143) Start time measurement
+144) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+145) End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time
+146) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+147) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+148) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+149) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+150) Set Media_0x385::LKS_Enable_S to 1 (TurnOffd)
+151) Set Media_0x385::LKS_Enable_S to 0 (Invalid)
+152) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 0 (VibrationOnly)
+153) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 0 (Disable)
+154) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 0 (NoDisplay)
+155) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 0 (NoDisplay)
+156) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 0 (VibrationOnly)
+157) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 0 (Disable)
+158) Start check : MPC_0x316::Left_Line_Tracking_Status_S has to remain 0 (No display)
+159) Start check : MPC_0x316::Right_Line_Tracking_Stats_S has to remain 0 (No display)
+160) wait 30000ms
+161) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 0 (VibrationOnly)
+162) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 0 (Disable)
+163) End of check : MPC_0x316::Left_Line_Tracking_Status_S remained 0 (No display)
+164) End of check : MPC_0x316::Right_Line_Tracking_Stats_S remained 0 (No display)
+165) Set Media_0x385::LKS_Enable_S to 2 (LaneDeparture)
+166) Set Media_0x385::LKS_Enable_S to 0 (Invalid)
+167) Set Media_0x385::LDW_Warning_Mode_S to 3 (VibrationSound)
+168) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+169) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+170) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+171) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+172) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)
+173) Start time measurement
+174) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+175) End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time
+176) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+177) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+178) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+179) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+180) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 5 mm
+181) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+182) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+183) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+184) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+185) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+186) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)
+187) Start time measurement
+188) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+189) End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time
+190) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+191) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+192) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+193) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+194) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 7 mm
+195) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+196) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+197) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+198) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+199) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+200) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 2 (VibrationSound)
+201) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+202) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+203) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+204) wait 30000ms
+205) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 2 (VibrationSound)
+206) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+207) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+208) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+209) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 10 mm
+210) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+211) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+212) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+213) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+214) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+215) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 2 (VibrationSound)
+216) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+217) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+218) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+219) wait 30000ms
+220) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 2 (VibrationSound)
+221) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+222) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+223) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+224) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 15 mm
+225) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+226) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+227) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+228) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+229) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+230) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 2 (VibrationSound)
+231) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+232) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+233) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+234) wait 30000ms
+235) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 2 (VibrationSound)
+236) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+237) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+238) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+239) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 20 mm
+240) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+241) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+242) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+243) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+244) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+245) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 2 (VibrationSound)
+246) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+247) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+248) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+249) wait 30000ms
+250) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 2 (VibrationSound)
+251) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+252) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+253) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+254) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 25 mm
+255) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+256) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+257) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+258) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+259) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+260) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 2 (VibrationSound)
+261) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+262) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+263) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+264) wait 30000ms
+265) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 2 (VibrationSound)
+266) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+267) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+268) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+269) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 3 mm
+270) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+271) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+272) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+273) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+274) Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)
+275) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 2 (VibrationSound)
+276) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)
+277) Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3
+278) Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3
+279) wait 30000ms
+280) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 2 (VibrationSound)
+281) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)
+282) End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3
+283) End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3
+284) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 2 mm
+285) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+286) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+287) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+288) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+289) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+290) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)
+291) Start time measurement
+292) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+293) End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time
+294) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+295) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+296) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+297) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+298) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_S to 0 mm
+299) Set IPB_0x0D5::IPB_Imput_Rod_Stroke_State_S to 0 (Valid)
+300) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+301) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+302) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+303) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+304) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)
+305) Start time measurement
+306) Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)
+307) End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time
+308) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+309) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)
+310) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)
+311) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)
+312) Set Media_0x385::LKS_Enable_S to 1 (TurnOffd)
+313) Set Media_0x385::LKS_Enable_S to 0 (Invalid)
+314) Wait for specific value of the signal MPC_0x316::LDW_Warning_Mode_Stats_S 2 (VibrationSound)
+315) Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 0 (Disable)
+316) Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 0 (NoDisplay)
+317) Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 0 (NoDisplay)
+318) Start check : MPC_0x316::LDW_Warning_Mode_Stats_S has to remain 2 (VibrationSound)
+319) Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 0 (Disable)
+320) Start check : MPC_0x316::Left_Line_Tracking_Status_S has to remain 0 (No display)
+321) Start check : MPC_0x316::Right_Line_Tracking_Stats_S has to remain 0 (No display)
+322) wait 30000ms
+323) End of check : MPC_0x316::LDW_Warning_Mode_Stats_S remained 2 (VibrationSound)
+324) End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 0 (Disable)
+325) End of check : MPC_0x316::Left_Line_Tracking_Status_S remained 0 (No display)
+326) End of check : MPC_0x316::Right_Line_Tracking_Stats_S remained 0 (No display)
+"	
+
+
+
+"1) -
+2) -
+3) -
+4) -
+5) -
+6) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+7) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+8) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+9) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+10) Left_Line_Tracking_Status_S has to be 3 (Warning)
+11) -
+12) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+13) -
+14) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+15) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+16) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+17) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+18) -
+19) -
+20) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+21) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+22) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+23) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+24) Left_Line_Tracking_Status_S has to be 3 (Warning)
+25) -
+26) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+27) -
+28) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+29) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+30) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+31) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+32) -
+33) -
+34) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+35) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+36) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+37) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+38) -
+39) -
+40) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+41) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+42) -
+43) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+44) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+45) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+46) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+47) -
+48) -
+49) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+50) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+51) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+52) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+53) -
+54) -
+55) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+56) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+57) -
+58) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+59) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+60) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+61) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+62) -
+63) -
+64) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+65) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+66) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+67) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+68) -
+69) -
+70) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+71) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+72) -
+73) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+74) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+75) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+76) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+77) -
+78) -
+79) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+80) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+81) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+82) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+83) -
+84) -
+85) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+86) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+87) -
+88) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+89) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+90) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+91) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+92) -
+93) -
+94) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+95) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+96) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+97) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+98) -
+99) -
+100) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+101) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+102) -
+103) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+104) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+105) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+106) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+107) -
+108) -
+109) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+110) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+111) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+112) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+113) -
+114) -
+115) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+116) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+117) -
+118) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+119) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+120) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+121) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+122) -
+123) -
+124) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+125) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+126) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+127) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+128) Left_Line_Tracking_Status_S has to be 3 (Warning)
+129) -
+130) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+131) -
+132) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+133) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+134) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+135) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+136) -
+137) -
+138) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+139) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+140) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+141) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+142) Left_Line_Tracking_Status_S has to be 3 (Warning)
+143) -
+144) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+145) -
+146) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+147) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+148) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+149) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+150) -
+151) -
+152) LDW_Warning_Mode_Stats_S has to be 0 (VibrationOnly)
+153) Lane_Assistant_Mode_Status_S has to be 0 (Disable)
+154) Left_Line_Tracking_Status_S has to be 0 (NoDisplay)
+155) Right_Line_Tracking_Stats_S has to be 0 (NoDisplay)
+156) -
+157) -
+158) -
+159) -
+160) -
+161) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+162) MPC_0x316::Lane_Assistant_Mode_Status remained unchanged
+163) MPC_0x316::Left_Line_Tracking_Status_S remained unchanged
+164) MPC_0x316::Right_Line_Tracking_Stats_S remained unchanged
+165) -
+166) -
+167) -
+168) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+169) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+170) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+171) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+172) Left_Line_Tracking_Status_S has to be 3 (Warning)
+173) -
+174) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+175) -
+176) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+177) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+178) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+179) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+180) -
+181) -
+182) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+183) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+184) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+185) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+186) Left_Line_Tracking_Status_S has to be 3 (Warning)
+187) -
+188) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+189) -
+190) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+191) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+192) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+193) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+194) -
+195) -
+196) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+197) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+198) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+199) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+200) -
+201) -
+202) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+203) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+204) -
+205) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+206) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+207) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+208) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+209) -
+210) -
+211) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+212) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+213) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+214) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+215) -
+216) -
+217) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+218) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+219) -
+220) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+221) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+222) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+223) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+224) -
+225) -
+226) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+227) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+228) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+229) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+230) -
+231) -
+232) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+233) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+234) -
+235) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+236) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+237) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+238) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+239) -
+240) -
+241) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+242) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+243) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+244) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+245) -
+246) -
+247) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+248) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+249) -
+250) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+251) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+252) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+253) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+254) -
+255) -
+256) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+257) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+258) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+259) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+260) -
+261) -
+262) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+263) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+264) -
+265) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+266) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+267) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+268) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+269) -
+270) -
+271) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+272) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+273) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+274) MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)
+275) -
+276) -
+277) MPC_0x316::Left_Line_Tracking_Status_S evaluated
+278) MPC_0x316::Right_Line_Tracking_Stats_S evaluated
+279) -
+280) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+281) MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged
+282) MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)
+283) MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)
+284) -
+285) -
+286) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+287) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+288) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+289) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+290) Left_Line_Tracking_Status_S has to be 3 (Warning)
+291) -
+292) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+293) -
+294) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+295) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+296) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+297) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+298) -
+299) -
+300) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+301) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+302) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+303) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+304) Left_Line_Tracking_Status_S has to be 3 (Warning)
+305) -
+306) MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)
+307) -
+308) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+309) Lane_Assistant_Mode_Status_S has to be 1 (LaneDeparture)
+310) Left_Line_Tracking_Status_S has to be 1 (Line tracking)
+311) Right_Line_Tracking_Stats_S has to be 1 (Line tracking)
+312) -
+313) -
+314) LDW_Warning_Mode_Stats_S has to be 2 (VibrationSound)
+315) Lane_Assistant_Mode_Status_S has to be 0 (Disable)
+316) Left_Line_Tracking_Status_S has to be 0 (NoDisplay)
+317) Right_Line_Tracking_Stats_S has to be 0 (NoDisplay)
+318) -
+319) -
+320) -
+321) -
+322) -
+323) MPC_0x316::LDW_Warning_Mode_Stats_S remained unchanged
+324) MPC_0x316::Lane_Assistant_Mode_Status remained unchanged
+325) MPC_0x316::Left_Line_Tracking_Status_S remained unchanged
+326) MPC_0x316::Right_Line_Tracking_Stats_S remained unchanged
+"	
+
+
+
+
+"1) envvar(E_pubc_IPB_IPB_0x121_IPB_Vehicle_Speed_S_Pv(85;100))
+2) envvar(E_pubc_Left_BCM_L1_Left_BCM_0x151_Speed_Signal_151_S_Pv(85;100))
+3) envvar(E_pubc_Media_Media_0x385_LKS_Enable_S_Pv(2;300))
+4) envvar(E_pubc_Media_Media_0x385_LKS_Enable_S_Pv(0;0)) //Active
+5) envvar(E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv(1;0)) //VibrationOnly
+6) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+7) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+8) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+9) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+10) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 3, 30000)
+11) TimeNowStart()
+12) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+13) TimeNowEnd(1000, 2000)
+14) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+15) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+16) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+17) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+18) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(5;0))
+19) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+20) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+21) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+22) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+23) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+24) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 3, 30000)
+25) TimeNowStart()
+26) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+27) TimeNowEnd(1000, 2000)
+28) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+29) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+30) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+31) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+32) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(7;0))
+33) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+34) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+35) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+36) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+37) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+38) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 0)
+39) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+40) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+41) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+42) wait(30000)
+43) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+44) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+45) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+46) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+47) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(10;0))
+48) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+49) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+50) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+51) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+52) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+53) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 0)
+54) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+55) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+56) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+57) wait(30000)
+58) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+59) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+60) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+61) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+62) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(15;0))
+63) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+64) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+65) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+66) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+67) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+68) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 0)
+69) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+70) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+71) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+72) wait(30000)
+73) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+74) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+75) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+76) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+77) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(20;0))
+78) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+79) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+80) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+81) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+82) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+83) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 0)
+84) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+85) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+86) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+87) wait(30000)
+88) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+89) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+90) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+91) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+92) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(25;0))
+93) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+94) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+95) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+96) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+97) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+98) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 0)
+99) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+100) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+101) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+102) wait(30000)
+103) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+104) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+105) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+106) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+107) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(3;0))
+108) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+109) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+110) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+111) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+112) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+113) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 0)
+114) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+115) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+116) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+117) wait(30000)
+118) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+119) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+120) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+121) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+122) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(2;0))
+123) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+124) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+125) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+126) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+127) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+128) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 3, 30000)
+129) TimeNowStart()
+130) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+131) TimeNowEnd(1000, 2000)
+132) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+133) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+134) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+135) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+136) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(0;0))
+137) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+138) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+139) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+140) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+141) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+142) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 3, 30000)
+143) TimeNowStart()
+144) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+145) TimeNowEnd(1000, 2000)
+146) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+147) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+148) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+149) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+150) envvar(E_pubc_Media_Media_0x385_LKS_Enable_S_Pv(1;300))
+151) envvar(E_pubc_Media_Media_0x385_LKS_Enable_S_Pv(0;0)) //Not active
+152) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 0, 100000)
+153) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 0, 100000)
+154) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 0, 10000)
+155) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 0, 10000)
+156) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 0)
+157) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 0)
+158) CheckSignalValueIsPermanentStart(string signalToCheck Left_Line_Tracking_Status_S, int value 0)
+159) CheckSignalValueIsPermanentStart(string signalToCheck Right_Line_Tracking_Stats_S, int value 0)
+160) wait(30000)
+161) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+162) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+163) CheckSignalValueIsPermanentStop(string signalToCheck Left_Line_Tracking_Status_S)
+164) CheckSignalValueIsPermanentStop(string signalToCheck Right_Line_Tracking_Stats_S)
+165) envvar(E_pubc_Media_Media_0x385_LKS_Enable_S_Pv(2;300))
+166) envvar(E_pubc_Media_Media_0x385_LKS_Enable_S_Pv(0;0)) //Active
+167) envvar(E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv(3;0)) //VibrationSound
+168) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+169) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+170) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+171) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+172) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 3, 30000)
+173) TimeNowStart()
+174) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+175) TimeNowEnd(1000, 2000)
+176) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+177) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+178) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+179) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+180) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(5;0))
+181) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+182) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+183) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+184) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+185) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+186) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 3, 30000)
+187) TimeNowStart()
+188) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+189) TimeNowEnd(1000, 2000)
+190) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+191) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+192) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+193) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+194) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(7;0))
+195) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+196) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+197) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+198) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+199) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+200) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 2)
+201) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+202) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+203) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+204) wait(30000)
+205) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+206) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+207) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+208) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+209) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(10;0))
+210) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+211) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+212) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+213) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+214) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+215) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 2)
+216) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+217) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+218) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+219) wait(30000)
+220) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+221) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+222) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+223) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+224) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(15;0))
+225) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+226) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+227) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+228) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+229) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+230) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 2)
+231) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+232) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+233) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+234) wait(30000)
+235) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+236) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+237) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+238) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+239) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(20;0))
+240) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+241) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+242) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+243) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+244) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+245) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 2)
+246) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+247) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+248) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+249) wait(30000)
+250) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+251) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+252) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+253) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+254) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(25;0))
+255) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+256) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+257) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+258) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+259) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+260) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 2)
+261) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+262) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+263) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+264) wait(30000)
+265) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+266) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+267) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+268) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+269) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(3;0))
+270) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+271) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+272) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+273) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+274) WaitForSignalValueOutsideRange(signal signalName(name Right_Line_Tracking_Stats_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+275) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 2)
+276) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 1)
+277) CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)
+278) CheckSignalValueIsNotTaken_START(string signalToCheck Right_Line_Tracking_Stats_S, float value 3)
+279) wait(30000)
+280) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+281) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+282) CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)
+283) CheckSignalValueIsNotTaken_STOP(string signalToCheck Right_Line_Tracking_Stats_S)
+284) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(2;0))
+285) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+286) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+287) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+288) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+289) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+290) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 3, 30000)
+291) TimeNowStart()
+292) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+293) TimeNowEnd(1000, 2000)
+294) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+295) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+296) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+297) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+298) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_S_Pv(0;0))
+299) envvar(E_pubc_IPB_IPB_0x0D5_IPB_Imput_Rod_Stroke_State_S_Pv(0;0))
+300) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+301) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+302) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+303) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+304) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 3, 30000)
+305) TimeNowStart()
+306) WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)
+307) TimeNowEnd(1000, 2000)
+308) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+309) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 1, 100000)
+310) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 1, 10000)
+311) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 1, 10000)
+312) envvar(E_pubc_Media_Media_0x385_LKS_Enable_S_Pv(1;300))
+313) envvar(E_pubc_Media_Media_0x385_LKS_Enable_S_Pv(0;0)) //Not active
+314) WaitForSignalValue(LDW_Warning_Mode_Stats_S, E_can, 2, 100000)
+315) WaitForSignalValue(Lane_Assistant_Mode_Status_S, E_can, 0, 100000)
+316) WaitForSignalValue(Left_Line_Tracking_Status_S, E_can, 0, 10000)
+317) WaitForSignalValue(Right_Line_Tracking_Stats_S, E_can, 0, 10000)
+318) CheckSignalValueIsPermanentStart(string signalToCheck LDW_Warning_Mode_Stats_S, int value 2)
+319) CheckSignalValueIsPermanentStart(string signalToCheck Lane_Assistant_Mode_Status_S, int value 0)
+320) CheckSignalValueIsPermanentStart(string signalToCheck Left_Line_Tracking_Status_S, int value 0)
+321) CheckSignalValueIsPermanentStart(string signalToCheck Right_Line_Tracking_Stats_S, int value 0)
+322) wait(30000)
+323) CheckSignalValueIsPermanentStop(string signalToCheck LDW_Warning_Mode_Stats_S)
+324) CheckSignalValueIsPermanentStop(string signalToCheck Lane_Assistant_Mode_Status_S)
+325) CheckSignalValueIsPermanentStop(string signalToCheck Left_Line_Tracking_Status_S)
+326) CheckSignalValueIsPermanentStop(string signalToCheck Right_Line_Tracking_Stats_S)
+"	
+Automated Testcase	implemented	
+"BYD_SA20
+BYD_SA3H"	
+"Requirement based Interface test"
+QM
+CANoe	
+KEYWORD_BYD_SA20_SA3EJK_T0.3_LabT_LDW.xml	
+https://rb-tracker.bosch.com/tracker/browse/GEELYVIDEO-4863
+CSCRM01510445		
+RC05	
+passed
