@@ -1,0 +1,95 @@
+TimeNowStart()	<capltestcase name="TimeNowStart" title="29- Start time measurement" ident="-" variants="Automated" />
+stopVideo()	
+
+
+envvar(E_pubc_ESP_ESP_PT_FrP01_VehSpd_Pv(85;500))	"			<testcase title=""2- Set ESP_PT_FrP01::VehSpd to 85 km/h"" ident=""-"">
+				<set title=""E_pubc_ESP_ESP_PT_FrP01_VehSpd_Pv"">
+					<envvar name=""E_pubc_ESP_ESP_PT_FrP01_VehSpd_Pv"">85</envvar>
+				</set>
+				<wait time=""500"" title=""wait"" />
+			</testcase>"
+wait(30000)	"			<testcase title=""8- wait 5000ms"" ident=""-"">
+				<wait time=""5000"" title=""wait"" />
+			</testcase>"
+CheckSignalValueIsPermanentStop(string signalToCheck ADAS_LKA_St_3U)	"			<capltestcase name=""CheckSignalValueIsPermanentStop"" title=""22- End of check : MPC_1::ADAS_LKA_St_3U remained 2 (Active)"" ident=""MPC_1::ADAS_LKA_St_3U remained unchanged"" variants=""Automated"">
+				<caplparam name=""signalToCheck"" type=""string"">ADAS_LKA_St_3U</caplparam>
+			</capltestcase>"
+CheckSignalValueIsNotTaken_STOP(string signalToCheck Left_Line_Tracking_Status_S)	"			<capltestcase name=""CheckSignalValueIsNotTaken_STOP"" title=""28- End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3"" ident=""MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)"" variants=""Automated"">
+				<caplparam name=""signalToCheck"" type=""string"">Left_Line_Tracking_Status_S</caplparam>
+			</capltestcase>"
+	
+TesterConfirm(UNCover the camera)	"			<testcase title=""13- UNCover the camera"" ident=""Confirmed by the tester."" variants=""Automated"">
+				<testerconfirmation title=""UNCover the camera"">UNCover the camera</testerconfirmation>
+			</testcase>"
+	
+Wait(int Time 200)	"			<capltestcase name=""Wait"" title=""2- Wait to   200 ms"" ident=""-"">
+				<caplparam name=""Time"" type=""int"">200</caplparam>
+			</capltestcase>"
+WaitForMessage(GW_3B8)	"			<capltestcase name=""WaitForMessage"" title=""4- Wait for messageGW_3B8"" ident=""Message arrived"">
+				<caplparam name=""MessageName"" type=""string"">GW_3B8</caplparam>
+				<caplparam name=""Timeout"" type=""int"">5000</caplparam>
+			</capltestcase>"
+
+SendMsg(string name E_pubc_BCM_BCM_CS_ist_FrS00_tx, int wait 0)	"			<capltestcase name=""SendMsg"" title=""5- Send message "" ident=""-"" variants=""Automated"">
+				<caplparam name=""name"" type=""string"">E_pubc_BCM_BCM_CS_ist_FrS00_tx</caplparam>
+				<caplparam name=""wait"" type=""int"">0</caplparam>
+			</capltestcase>"
+CheckSignalValueIsPermanentStart(string signalToCheck ADAS_LKA_St_3U, int value 2)	"			<capltestcase name=""CheckSignalValueIsPermanentStart"" title=""15- Start check : MPC_1::ADAS_LKA_St_3U has to remain 2 (LKS Active)"" ident=""-"" variants=""Automated"">
+				<caplparam name=""signalToCheck"" type=""string"">ADAS_LKA_St_3U</caplparam>
+				<caplparam name=""value"" type=""int"">2</caplparam>
+			</capltestcase>"
+TimeNowEnd(1000,2000)	"			<capltestcase name=""TimeNowEnd"" title=""14- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time"" ident=""-"" variants=""Automated"">
+				<caplparam name=""aTime1"" type=""string"">1000</caplparam>
+				<caplparam name=""aTime2"" type=""string"">2000</caplparam>
+			</capltestcase>"
+CheckSignalValueIsNotTaken_START(string signalToCheck Left_Line_Tracking_Status_S, float value 3)	"			<capltestcase name=""CheckSignalValueIsNotTaken_START"" title=""24- Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3"" ident=""MPC_0x316::Left_Line_Tracking_Status_S evaluated"" variants=""Automated"">
+				<caplparam name=""signalToCheck"" type=""string"">Left_Line_Tracking_Status_S</caplparam>
+				<caplparam name=""value"" type=""float"">3</caplparam>
+			</capltestcase>"
+	
+Check_Eventmessage_failure(string MsgEnvVar E_pric_RadarFrontCenter_OnComingObj0_tx, int Nrofevents 1)	"			<capltestcase name=""Check_Eventmessage_failure"" title=""4- Send   E_pric_RadarFrontCenter_OnComingObj0_tx =1,   4 time "" ident=""-"">
+				<caplparam name=""MsgEnvVar"" type=""string"">E_pric_RadarFrontCenter_OnComingObj0_tx</caplparam>
+				<caplparam name=""Nrofevents"" type=""int"">4</caplparam>
+			</capltestcase>"
+AvoidSignalValue(signal signalName(name Left_line_tracking_status; bus E_can), float signalValue 3, int Timeout 10000)	"			<capltestcase name=""AvoidSignalValue"" title=""48- Monitor the signal IFC_2::IFC_TorqueReq"" ident=""IFC_2::IFC_TorqueReq did NOT take the value 0 Nm during the last 500 millisecond(s)"" variants=""Automated"">
+				<caplparam name=""signalName"" type=""signal"">
+					<cansignal bus=""E_can"" name=""IFC_TorqueReq"" msg="""" node="""" />
+				</caplparam>
+				<caplparam name=""signalValue"" type=""float"">0</caplparam>
+				<caplparam name=""Timeout"" type=""int"">500</caplparam>
+			</capltestcase>"
+RequestResponse(190209, 5902195C2D9709, Equal)	"			<capltestcase name=""RequestResponse"" title=""22- Read the DTC with service 0x190209"" ident=""Positive answer 0x5906c1468700.* - The status of DTC ID 0xc14687 () should be 'NOT present'"">
+				<caplparam name=""Request"" type=""string"">190209</caplparam>
+				<caplparam name=""Response"" type=""string"">590279</caplparam>
+				<caplparam name=""CompareMode"" type=""string"">Regexp</caplparam>
+			</capltestcase>"
+	
+SetEnvVar(string Name E_pubc_GW_GW_1A8_TCU_ActualGear_Rv, string Value 0, int WaitTime 0)	"			<capltestcase name=""SetEnvVar"" title=""4- Set the   E_pubc_GW_GW_1A8_TCU_ActualGear_Rv to   Value 0 and   Wait 0 ms"" ident=""-"" variants=""Automated"">
+				<caplparam name=""Name"" type=""string"">E_pubc_GW_GW_1A8_TCU_ActualGear_Rv</caplparam>
+				<caplparam name=""Value"" type=""string"">0</caplparam>
+				<caplparam name=""WaitTime"" type=""int"">0</caplparam>
+			</capltestcase>"
+setenv_CRC_BZ(string Name E_pubc_GW_GW_3B8_HU_RollingCounter_3B8_wrongvalctr, int Value 0, int WaitTime 0)	"			<capltestcase name=""setenv_CRC_BZ"" title=""5- Set the   E_pubc_GW_GW_3B8_HU_RollingCounter_3B8_wrongvalctr to   Value -1 in   Wait 0 ms"" ident=""-"">
+				<caplparam name=""Name"" type=""string"">E_pubc_GW_GW_3B8_HU_RollingCounter_3B8_wrongvalctr</caplparam>
+				<caplparam name=""Value"" type=""int"">-1</caplparam>
+				<caplparam name=""WaitTime"" type=""int"">0</caplparam>
+			</capltestcase>"
+
+
+
+WaitForSignalValueOutsideRange(signal signalName(name Left_Line_Tracking_Status_S; bus E_can), float aLowLimit 3, float aHighLimit 3, int Timeout 3500)	"			<capltestcase name=""WaitForSignalValueOutsideRange"" title=""13- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)"" ident=""MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)"" variants=""Automated"">
+				<caplparam name=""signalName"" type=""signal"">
+					<cansignal bus=""E_can"" name=""Left_Line_Tracking_Status_S"" />
+				</caplparam>
+				<caplparam name=""aLowLimit"" type=""float"">3</caplparam>
+				<caplparam name=""aHighLimit"" type=""float"">3</caplparam>
+				<caplparam name=""Timeout"" type=""int"">3500</caplparam>
+			</capltestcase>"
+	
+RequestResponseTimeElapsed(string Request 1906d7878701, string Response 5906d787870[1|9].*, string CompareMode RegexpNoFailed, string aTime1 1900, string aTime2 2100)	"			<capltestcase name=""RequestResponseTimeElapsed"" title=""10- Measuring qualification time DTC 1906d7878701"" ident=""The DTC is qualified or health in  time"">
+				<caplparam name=""Request"" type=""string"">1906d7878701</caplparam>
+				<caplparam name=""Response"" type=""string"">5906d787870[1|9].*</caplparam>
+				<caplparam name=""CompareMode"" type=""string"">RegexpNoFailed</caplparam>
+				<caplparam name=""aTime1"" type=""string"">1900</caplparam>
+				<caplparam name=""aTime2"" type=""string"">2100</caplparam>
+			</capltestcase>"
