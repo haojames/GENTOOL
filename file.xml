@@ -1,0 +1,928 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testmodule title="BYD_SA20_SA3EJ_K_T0.3_RC04" version="1.0">
+	<variants>
+		<variant name="Automated">TestsAutomated Testcase</variant>
+	</variants>
+	<testgroup title="TestsAutomated Testcase">
+		<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_98" />
+		<testgroup title="Test results (logs)">
+			<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_163" />
+		</testgroup>
+		<testgroup title="Initialization">
+			<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_158" />
+		</testgroup>
+		<testgroup title="Function activation">
+			<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_105" />
+		</testgroup>
+		<testgroup title="Function supression">
+			<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_107" />
+		</testgroup>
+		<testgroup title="Function failure">
+			<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_108" />
+		</testgroup>
+		<testgroup title="EOL Requirements">
+			<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_218" />
+		</testgroup>
+		<testgroup title="HMI Requirements">
+			<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_188" />
+		</testgroup>
+	</testgroup>
+	<testgroup title="Hazard light suppression, left Automated Testcase">
+		<testgroup title="Hazard light suppression, left">
+			<externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_140" />
+			<testcase title="1- Set IPB_0x121::IPB_Vehicle_Speed_S to 85 KPH" ident="-">
+				<set title="E_pubc_IPB_IPB_0x121_IPB_Vehicle_Speed_S_Pv">
+					<envvar name="E_pubc_IPB_IPB_0x121_IPB_Vehicle_Speed_S_Pv">85</envvar>
+				</set>
+				<wait time="100" title="wait" />
+			</testcase>
+			<testcase title="2- Set Left_BCM_0x151::Speed_Signal_151_S to 85 KPH" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x151_Speed_Signal_151_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x151_Speed_Signal_151_S_Pv">85</envvar>
+				</set>
+				<wait time="100" title="wait" />
+			</testcase>
+			<testcase title="3- Set Media_0x385::LKS_Enable_S to 2 (LaneDeparture)" ident="-">
+				<set title="E_pubc_Media_Media_0x385_LKS_Enable_S_Pv">
+					<envvar name="E_pubc_Media_Media_0x385_LKS_Enable_S_Pv">2</envvar>
+				</set>
+				<wait time="300" title="wait" />
+			</testcase>
+			<testcase title="4- Set Media_0x385::LKS_Enable_S to 0 (Invalid)" ident="-">
+				<set title="E_pubc_Media_Media_0x385_LKS_Enable_S_Pv">
+					<envvar name="E_pubc_Media_Media_0x385_LKS_Enable_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="5- Set Media_0x385::LDW_Warning_Mode_S to 0 (Invalid)" ident="-">
+				<set title="E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv">
+					<envvar name="E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="startVideo" title="6- Show video to the camera with LEFT line approximation and lane change maneuver" ident="-" variants="Automated">
+				<caplparam name="VideoPath" type="string">C:\Users\EDC8HC\Desktop\Function_test_videos\Video_inputs\LKS_left_line_change_v2.mp4</caplparam>
+				<caplparam name="MonitorNum" type="string">2</caplparam>
+				<caplparam name="Loop" type="string">yes</caplparam>
+			</capltestcase>
+			<testcase title="7- wait 20000ms" ident="-">
+				<wait time="20000" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="8- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="9- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="10- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="11- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">30000</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowStart" title="12- Start time measurement" ident="-" variants="Automated" />
+			<capltestcase name="WaitForSignalValueOutsideRange" title="13- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowEnd" title="14- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time" ident="-" variants="Automated">
+				<caplparam name="aTime1" type="string">1000</caplparam>
+				<caplparam name="aTime2" type="string">2000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="15- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="16- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="17- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<testcase title="18- Set Left_BCM_0x294::Emergency_Alarm_Status_S to 2 " ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">2</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="19- Set Left_BCM_0x294::Emergency_Alarm_Effective_Bit_S to 0 (Valid)" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="20- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValueOutsideRange" title="21- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValueOutsideRange" title="22- Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Right_Line_Tracking_Stats_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStart" title="23- Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+				<caplparam name="value" type="int">1</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_START" title="24- Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3" ident="MPC_0x316::Left_Line_Tracking_Status_S evaluated" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+				<caplparam name="value" type="float">3</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_START" title="25- Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3" ident="MPC_0x316::Right_Line_Tracking_Stats_S evaluated" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+				<caplparam name="value" type="float">3</caplparam>
+			</capltestcase>
+			<testcase title="26- wait 30000ms" ident="-">
+				<wait time="30000" title="wait" />
+			</testcase>
+			<capltestcase name="CheckSignalValueIsPermanentStop" title="27- End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)" ident="MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_STOP" title="28- End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3" ident="MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_STOP" title="29- End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3" ident="MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+			</capltestcase>
+			<testcase title="30- Set Left_BCM_0x294::Emergency_Alarm_Status_S to 1 " ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">1</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="31- Set Left_BCM_0x294::Emergency_Alarm_Effective_Bit_S to 0 (Valid)" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="32- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="33- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="34- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="35- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">30000</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowStart" title="36- Start time measurement" ident="-" variants="Automated" />
+			<capltestcase name="WaitForSignalValueOutsideRange" title="37- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowEnd" title="38- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time" ident="-" variants="Automated">
+				<caplparam name="aTime1" type="string">1000</caplparam>
+				<caplparam name="aTime2" type="string">2000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="39- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="40- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="41- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<testcase title="42- Set Media_0x385::LDW_Warning_Mode_S to 1 (VibrationOnly)" ident="-">
+				<set title="E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv">
+					<envvar name="E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv">1</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="43- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="44- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="45- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="46- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">30000</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowStart" title="47- Start time measurement" ident="-" variants="Automated" />
+			<capltestcase name="WaitForSignalValueOutsideRange" title="48- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowEnd" title="49- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time" ident="-" variants="Automated">
+				<caplparam name="aTime1" type="string">1000</caplparam>
+				<caplparam name="aTime2" type="string">2000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="50- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="51- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="52- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<testcase title="53- Set Left_BCM_0x294::Emergency_Alarm_Status_S to 2 " ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">2</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="54- Set Left_BCM_0x294::Emergency_Alarm_Effective_Bit_S to 0 (Valid)" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="55- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValueOutsideRange" title="56- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValueOutsideRange" title="57- Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Right_Line_Tracking_Stats_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStart" title="58- Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+				<caplparam name="value" type="int">1</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_START" title="59- Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3" ident="MPC_0x316::Left_Line_Tracking_Status_S evaluated" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+				<caplparam name="value" type="float">3</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_START" title="60- Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3" ident="MPC_0x316::Right_Line_Tracking_Stats_S evaluated" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+				<caplparam name="value" type="float">3</caplparam>
+			</capltestcase>
+			<testcase title="61- wait 30000ms" ident="-">
+				<wait time="30000" title="wait" />
+			</testcase>
+			<capltestcase name="CheckSignalValueIsPermanentStop" title="62- End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)" ident="MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_STOP" title="63- End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3" ident="MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_STOP" title="64- End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3" ident="MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+			</capltestcase>
+			<testcase title="65- Set Left_BCM_0x294::Emergency_Alarm_Status_S to 1 " ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">1</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="66- Set Left_BCM_0x294::Emergency_Alarm_Effective_Bit_S to 0 (Valid)" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="67- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="68- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="69- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="70- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">30000</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowStart" title="71- Start time measurement" ident="-" variants="Automated" />
+			<capltestcase name="WaitForSignalValueOutsideRange" title="72- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowEnd" title="73- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time" ident="-" variants="Automated">
+				<caplparam name="aTime1" type="string">1000</caplparam>
+				<caplparam name="aTime2" type="string">2000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="74- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="75- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="76- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<testcase title="77- Set Media_0x385::LDW_Warning_Mode_S to 2 (SoundOnly)" ident="-">
+				<set title="E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv">
+					<envvar name="E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv">2</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="78- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="79- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="80- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="81- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">30000</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowStart" title="82- Start time measurement" ident="-" variants="Automated" />
+			<capltestcase name="WaitForSignalValueOutsideRange" title="83- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowEnd" title="84- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time" ident="-" variants="Automated">
+				<caplparam name="aTime1" type="string">1000</caplparam>
+				<caplparam name="aTime2" type="string">2000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="85- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="86- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="87- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<testcase title="88- Set Left_BCM_0x294::Emergency_Alarm_Status_S to 2 " ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">2</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="89- Set Left_BCM_0x294::Emergency_Alarm_Effective_Bit_S to 0 (Valid)" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="90- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValueOutsideRange" title="91- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValueOutsideRange" title="92- Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Right_Line_Tracking_Stats_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStart" title="93- Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+				<caplparam name="value" type="int">1</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_START" title="94- Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3" ident="MPC_0x316::Left_Line_Tracking_Status_S evaluated" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+				<caplparam name="value" type="float">3</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_START" title="95- Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3" ident="MPC_0x316::Right_Line_Tracking_Stats_S evaluated" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+				<caplparam name="value" type="float">3</caplparam>
+			</capltestcase>
+			<testcase title="96- wait 30000ms" ident="-">
+				<wait time="30000" title="wait" />
+			</testcase>
+			<capltestcase name="CheckSignalValueIsPermanentStop" title="97- End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)" ident="MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_STOP" title="98- End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3" ident="MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_STOP" title="99- End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3" ident="MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+			</capltestcase>
+			<testcase title="100- Set Left_BCM_0x294::Emergency_Alarm_Status_S to 1" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">1</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="101- Set Left_BCM_0x294::Emergency_Alarm_Effective_Bit_S to 0 (Valid)" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="102- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="103- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="104- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="105- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">30000</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowStart" title="106- Start time measurement" ident="-" variants="Automated" />
+			<capltestcase name="WaitForSignalValueOutsideRange" title="107- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowEnd" title="108- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time" ident="-" variants="Automated">
+				<caplparam name="aTime1" type="string">1000</caplparam>
+				<caplparam name="aTime2" type="string">2000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="109- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="110- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="111- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<testcase title="112- Set Media_0x385::LDW_Warning_Mode_S to 3 (VibrationSound)" ident="-">
+				<set title="E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv">
+					<envvar name="E_pubc_Media_Media_0x385_LDW_Warning_Mode_S_Pv">3</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="113- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="114- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="115- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="116- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">30000</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowStart" title="117- Start time measurement" ident="-" variants="Automated" />
+			<capltestcase name="WaitForSignalValueOutsideRange" title="118- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowEnd" title="119- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time" ident="-" variants="Automated">
+				<caplparam name="aTime1" type="string">1000</caplparam>
+				<caplparam name="aTime2" type="string">2000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="120- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="121- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="122- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<testcase title="123- Set Left_BCM_0x294::Emergency_Alarm_Status_S to 2 " ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">2</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="124- Set Left_BCM_0x294::Emergency_Alarm_Effective_Bit_S to 0 (Valid)" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="125- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValueOutsideRange" title="126- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValueOutsideRange" title="127- Wait for the value of signal MPC_0x316::Right_Line_Tracking_Stats_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Right_Line_Tracking_Stats_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Right_Line_Tracking_Stats_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStart" title="128- Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+				<caplparam name="value" type="int">1</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_START" title="129- Start check : MPC_0x316::Left_Line_Tracking_Status_S shall NOT take the value(s) 3" ident="MPC_0x316::Left_Line_Tracking_Status_S evaluated" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+				<caplparam name="value" type="float">3</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_START" title="130- Start check : MPC_0x316::Right_Line_Tracking_Stats_S shall NOT take the value(s) 3" ident="MPC_0x316::Right_Line_Tracking_Stats_S evaluated" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+				<caplparam name="value" type="float">3</caplparam>
+			</capltestcase>
+			<testcase title="131- wait 30000ms" ident="-">
+				<wait time="30000" title="wait" />
+			</testcase>
+			<capltestcase name="CheckSignalValueIsPermanentStop" title="132- End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 1 (LaneDeparture)" ident="MPC_0x316::Lane_Assistant_Mode_Status_S remained unchanged" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_STOP" title="133- End of check : MPC_0x316::Left_Line_Tracking_Status_S should not take not allowed value(s) : 3" ident="MPC_0x316::Left_Line_Tracking_Status_S did not take not allowed value(s)" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsNotTaken_STOP" title="134- End of check : MPC_0x316::Right_Line_Tracking_Stats_S should not take not allowed value(s) : 3" ident="MPC_0x316::Right_Line_Tracking_Stats_S did not take not allowed value(s)" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+			</capltestcase>
+			<testcase title="135- Set Left_BCM_0x294::Emergency_Alarm_Status_S to 1 " ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Status_S_Pv">1</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<testcase title="136- Set Left_BCM_0x294::Emergency_Alarm_Effective_Bit_S to 0 (Valid)" ident="-">
+				<set title="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">
+					<envvar name="E_pubc_Left_BCM_L1_Left_BCM_0x294_Emergency_Alarm_Effective_Bit_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="137- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="138- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="139- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="140- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S (Left line Warning)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">30000</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowStart" title="141- Start time measurement" ident="-" variants="Automated" />
+			<capltestcase name="WaitForSignalValueOutsideRange" title="142- Wait for the value of signal MPC_0x316::Left_Line_Tracking_Status_S becomes not equal to 3 (Warning)" ident="MPC_0x316::Left_Line_Tracking_Status_S does not equal to 3 (Warning)" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal bus="E_can" name="Left_Line_Tracking_Status_S" />
+				</caplparam>
+				<caplparam name="aLowLimit" type="float">3</caplparam>
+				<caplparam name="aHighLimit" type="float">3</caplparam>
+				<caplparam name="Timeout" type="int">3500</caplparam>
+			</capltestcase>
+			<capltestcase name="TimeNowEnd" title="143- End time measurement: min 1 second(s), but max 2 second(s) elapsed from start time" ident="-" variants="Automated">
+				<caplparam name="aTime1" type="string">1000</caplparam>
+				<caplparam name="aTime2" type="string">2000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="144- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 1 (LaneDeparture)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="145- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="146- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 1 (Line tracking)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">1</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<testcase title="147- Set Media_0x385::LKS_Enable_S to 1 (TurnOffd)" ident="-">
+				<set title="E_pubc_Media_Media_0x385_LKS_Enable_S_Pv">
+					<envvar name="E_pubc_Media_Media_0x385_LKS_Enable_S_Pv">1</envvar>
+				</set>
+				<wait time="300" title="wait" />
+			</testcase>
+			<testcase title="148- Set Media_0x385::LKS_Enable_S to 0 (Invalid)" ident="-">
+				<set title="E_pubc_Media_Media_0x385_LKS_Enable_S_Pv">
+					<envvar name="E_pubc_Media_Media_0x385_LKS_Enable_S_Pv">0</envvar>
+				</set>
+				<wait time="0" title="wait" />
+			</testcase>
+			<capltestcase name="WaitForSignalValue" title="149- Wait for specific value of the signal MPC_0x316::Lane_Assistant_Mode_Status_S 0 (Disable)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Lane_Assistant_Mode_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">0</caplparam>
+				<caplparam name="Timeout" type="int">100000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="150- Wait for specific value of the signal MPC_0x316::Left_Line_Tracking_Status_S 0 (NoDisplay)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Left_Line_Tracking_Status_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">0</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="WaitForSignalValue" title="151- Wait for specific value of the signal MPC_0x316::Right_Line_Tracking_Stats_S 0 (NoDisplay)" ident="-" variants="Automated">
+				<caplparam name="signalName" type="signal">
+					<cansignal name="Right_Line_Tracking_Stats_S" bus="E_can" />
+				</caplparam>
+				<caplparam name="signalValue" type="float">0</caplparam>
+				<caplparam name="Timeout" type="int">10000</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStart" title="152- Start check : MPC_0x316::Lane_Assistant_Mode_Status_S has to remain 0 (Disable)" ident="-" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+				<caplparam name="value" type="int">0</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStart" title="153- Start check : MPC_0x316::Left_Line_Tracking_Status_S has to remain 0 (No display)" ident="-" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+				<caplparam name="value" type="int">0</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStart" title="154- Start check : MPC_0x316::Right_Line_Tracking_Stats_S has to remain 0 (No display)" ident="-" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+				<caplparam name="value" type="int">0</caplparam>
+			</capltestcase>
+			<testcase title="155- wait 30000ms" ident="-">
+				<wait time="30000" title="wait" />
+			</testcase>
+			<capltestcase name="CheckSignalValueIsPermanentStop" title="156- End of check : MPC_0x316::Lane_Assistant_Mode_Status_S remained 0 (Disable)" ident="MPC_0x316::Lane_Assistant_Mode_Status remained unchanged" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Lane_Assistant_Mode_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStop" title="157- End of check : MPC_0x316::Left_Line_Tracking_Status_S remained 0 (No display)" ident="MPC_0x316::Left_Line_Tracking_Status_S remained unchanged" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Left_Line_Tracking_Status_S</caplparam>
+			</capltestcase>
+			<capltestcase name="CheckSignalValueIsPermanentStop" title="158- End of check : MPC_0x316::Right_Line_Tracking_Stats_S remained 0 (No display)" ident="MPC_0x316::Right_Line_Tracking_Stats_S remained unchanged" variants="Automated">
+				<caplparam name="signalToCheck" type="string">Right_Line_Tracking_Stats_S</caplparam>
+			</capltestcase>
+		</testgroup>
+	</testgroup>
+</testmodule>
