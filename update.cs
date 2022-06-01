@@ -94,3 +94,36 @@ namespace GENTOOL.Models
         }
     }
 }
+
+
+
+
+
+        public List<T> ImportData<T>(string inputpath, string sheetName)
+        {
+            Input = inputpath;
+            XLWorkbook workBook = new XLWorkbook(Input);
+            List<T> list = new List<T>();
+            Type typeOfObject = typeof(T);
+            //IXLWorksheet workSheet = workBook.Worksheet(1);
+            using (workBook)
+            {
+                var worksheet = workBook.Worksheets.Where(w => w.Name == sheetName).First();
+                var properties = typeOfObject.GetProperties();
+                //header column text
+                var columns = worksheet.FirstRow().Cells().Select((v, i) => new { Value = v.Value, Index = i + 1}); //EPPLUS 1
+                foreach (IXLRow row in worksheet.RowsUsed().Skip(1))
+                {
+                    T obj = (T)Activator.CreateInstance(typeOfObject);
+                    foreach (var prop in properties)
+                    {
+                        int colIndex = columns?.SingleOrDefault(c => c.Value?.ToString() == prop.Name?.ToString())?.Index ?? 1;
+                        var val = row.Cell(colIndex)?.Value;
+                        var type = prop.PropertyType;
+                        prop.SetValue(obj, Convert.ChangeType(val, type));
+                    }
+                    list.Add(obj);
+                }
+            }    
+            return list;
+        } 
