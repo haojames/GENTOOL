@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testmodule title="BYD_SA20_SA3EJ_K_T0.3_RC04" version="1.0">
+  <testgroup title="Automated Testcase" />
+  <testgroup title="2.5.2 Low velocity suppression-RIGHT">
+    <capltestcase name="TimeNowStart" title="12 Start time measurement" ident="-" variants="Automated Testcase" />
+    <capltestcase name="TimeNowStart" title="24 Start time measurement" ident="-" variants="Automated Testcase" />
+    <capltestcase name="TimeNowStart" title="36 Start time measurement" ident="-" variants="Automated Testcase" />
+    <capltestcase name="TimeNowStart" title="48 Start time measurement" ident="-" variants="Automated Testcase" />
+    <capltestcase name="TimeNowStart" title="60 Start time measurement" ident="-" variants="Automated Testcase" />
+    <capltestcase name="TimeNowStart" title="132 Start time measurement" ident="-" variants="Automated Testcase" />
+    <capltestcase name="TimeNowStart" title="144 Start time measurement" ident="-" variants="Automated Testcase" />
+  </testgroup>
+</testmodule>
