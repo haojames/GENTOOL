@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <testmodule title="BYD_SA20_SA3EJ_K_T0.3_RC04" version="1.0">
+  	<variants>
+		<variant name="Automated">TestsAutomated Testcase</variant>
+	</variants>
   <testgroup title="Automated Testcase" />
   <testgroup title="2.5.2 Low velocity suppression-RIGHT">
     <capltestcase name="TimeNowStart" title="12 Start time measurement" ident="-" variants="Automated Testcase" />
