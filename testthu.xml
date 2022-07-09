@@ -1,16 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <testmodule title="BYD_SA20_SA3EJ_K_T0.3_RC04" version="1.0">
-  	<variants>
-		<variant name="Automated">TestsAutomated Testcase</variant>
-	</variants>
-  <testgroup title="Automated Testcase" />
-  <testgroup title="2.5.2 Low velocity suppression-RIGHT">
-    <capltestcase name="TimeNowStart" title="12 Start time measurement" ident="-" variants="Automated Testcase" />
-    <capltestcase name="TimeNowStart" title="24 Start time measurement" ident="-" variants="Automated Testcase" />
-    <capltestcase name="TimeNowStart" title="36 Start time measurement" ident="-" variants="Automated Testcase" />
-    <capltestcase name="TimeNowStart" title="48 Start time measurement" ident="-" variants="Automated Testcase" />
-    <capltestcase name="TimeNowStart" title="60 Start time measurement" ident="-" variants="Automated Testcase" />
-    <capltestcase name="TimeNowStart" title="132 Start time measurement" ident="-" variants="Automated Testcase" />
-    <capltestcase name="TimeNowStart" title="144 Start time measurement" ident="-" variants="Automated Testcase" />
+  <variants>
+    <variant name="Automated">TestsAutomated Testcase</variant>
+  </variants>
+  <testgroup title="2.5.1 Low velocity suppression-LEFT Automated Testcase">
+    <testgroup title="2.5.1 Low velocity suppression-LEFT">
+      <externalref type="doors" owner="TAE - DOORS extension" title="BYD_SA20_SA3EJK_LabT_LDW_114" />
+      <testcase title="7- wait 20000ms" ident="-">
+        <wait time="20000" title="wait" />
+      </testcase>
+      <capltestcase name="TimeNowStart" title="12- Start time measurement" ident="-" variants="Automated" />
+      <capltestcase name="TimeNowStart" title="24- Start time measurement" ident="-" variants="Automated" />
+      <capltestcase name="TimeNowStart" title="36- Start time measurement" ident="-" variants="Automated" />
+      <capltestcase name="TimeNowStart" title="48- Start time measurement" ident="-" variants="Automated" />
+      <capltestcase name="TimeNowStart" title="60- Start time measurement" ident="-" variants="Automated" />
+      <testcase title="74- wait 30000ms" ident="-">
+        <wait time="30000" title="wait" />
+      </testcase>
+      <testcase title="86- wait 30000ms" ident="-">
+        <wait time="30000" title="wait" />
+      </testcase>
+      <testcase title="98- wait 30000ms" ident="-">
+        <wait time="30000" title="wait" />
+      </testcase>
+      <testcase title="110- wait 30000ms" ident="-">
+        <wait time="30000" title="wait" />
+      </testcase>
+      <testcase title="122- wait 30000ms" ident="-">
+        <wait time="30000" title="wait" />
+      </testcase>
+      <capltestcase name="TimeNowStart" title="132- Start time measurement" ident="-" variants="Automated" />
+      <capltestcase name="TimeNowStart" title="144- Start time measurement" ident="-" variants="Automated" />
+      <testcase title="158- wait 30000ms" ident="-">
+        <wait time="30000" title="wait" />
+      </testcase>
+    </testgroup>
   </testgroup>
 </testmodule>
